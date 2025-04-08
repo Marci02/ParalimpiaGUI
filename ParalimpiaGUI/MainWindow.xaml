@@ -1,0 +1,43 @@
+﻿<Window x:Class="ParalimpiaGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ParalimpiaGUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label Content="Szűrés ország vagy város alapján:" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <TextBox x:Name="SearchTxt" HorizontalAlignment="Left" Margin="301,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="444" RenderTransformOrigin="0.5,0.5" TextChanged="SearchTxt_TextChanged">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.048"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <DataGrid x:Name="AdatokGrid" Margin="10,62,22,161" AutoGenerateColumns="False" IsSynchronizedWithCurrentItem="True" ClipToBounds="True" SelectionChanged="AdatokGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="#"/>
+                <DataGridTextColumn Binding="{Binding Orszag}" Header="rendező ország"/>
+                <DataGridTextColumn Binding="{Binding Varos}" Header="helyszín"/>
+                <DataGridTextColumn Binding="{Binding Ev}" Header="év"/>
+                <DataGridTextColumn Binding="{Binding Arany}" Header="arany"/>
+                <DataGridTextColumn Binding="{Binding Ezust}" Header="ezüst"/>
+                <DataGridTextColumn Binding="{Binding Bronz}" Header="bronz"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="kijelölt év:" HorizontalAlignment="Left" Margin="26,347,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="JeloltEv" Content="####" HorizontalAlignment="Left" Margin="168,347,0,0" VerticalAlignment="Top"/>
+        <Label Content="arany" HorizontalAlignment="Left" Margin="273,318,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="ezust" HorizontalAlignment="Left" Margin="353,318,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="bronz" HorizontalAlignment="Left" Margin="442,318,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="JeloltArany" HorizontalAlignment="Left" Margin="279,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Height="25" FontSize="16" TextAlignment="Center"/>
+        <TextBox x:Name="JeloltEzust" HorizontalAlignment="Left" Margin="353,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Height="25" FontSize="16" TextAlignment="Center"/>
+        <TextBox x:Name="JeloltBronz" HorizontalAlignment="Left" Margin="442,349,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Height="25" FontSize="16" TextAlignment="Center"/>
+        <Button x:Name="modositas" Content="módosítási javaslat" HorizontalAlignment="Left" Margin="564,341,0,0" VerticalAlignment="Top" Height="41" Width="195" Click="modositas_Click"/>
+
+    </Grid>
+</Window>
